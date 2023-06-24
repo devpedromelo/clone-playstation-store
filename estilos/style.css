@@ -354,6 +354,7 @@ li{
 }
 
 .media{
+    margin-top: -20px;
     display: inline-flex;
     position: relative;
 }
