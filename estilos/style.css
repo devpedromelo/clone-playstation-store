@@ -5,6 +5,11 @@
     padding: 0px;
     box-sizing: border-box;
     border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    overflow-x: hidden;
 }
 
 .sony-logo{
@@ -312,15 +317,15 @@ li{
     transition: background-color 0.25s ease-in;
 }
 
-.web-star-tab:hover{
-    background-color: #e9e9e9;
+.web-star-tab:hover, .mostrar-mais button:hover{
+    background-color: #efefef;
 }
 
 #main{
-    margin-top: 1.25rem;
+    margin-bottom: 4rem;
 }
 
-.collection{
+#main .collection{
     margin-top: 1.25rem;
 }
 
@@ -371,6 +376,123 @@ li{
 
 .psw-fade-in-out{
     object-fit: cover;
+}
+
+.divulgacao{
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,.12);
+}
+
+.paragrafo-section{
+    padding-bottom: 28px !important;
+    padding-top: 28px !important;
+    max-width: calc(100vw - 84px);
+    margin: auto;
+    align-items: flex-start;
+    justify-content: space-between;
+    display: flex;
+}
+
+.paragrafo{
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    align-items: flex-start;
+}
+
+.paragrafo h2{
+    font-weight: normal;
+    margin-bottom: 28px
+}
+
+.paragrafo p{
+    color: #6b6b6b;
+    font-size: .8rem;
+}
+
+.btn{
+    margin-left: 28px !important;
+    margin-top: -4px !important;
+}
+
+.collection-list{
+    max-width: calc(100vw - 26px);
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    justify-content: center;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+}
+
+.grid-list-collection{
+    width: calc(33.3333333333vw - 37.3333333333px);
+    min-width: calc(33.3333333333vw - 37.3333333333px);
+    margin: 6px;
+}
+
+.view-collection{
+    margin-bottom: 56px;
+    margin-top: 20px;
+}
+
+.psw-line-center, .menu-list-ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+}
+
+ul img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.mostrar-mais{
+    text-align: center;
+    /* margin-top: -302px; */
+    margin-top: 20px;
+    text-align: center;
+    background-color: white;
+    position: relative;
+    /* height: 300px; */
+}
+
+.mostrar-mais button{
+    background-color: white;
+    color: #0070cc;
+    padding: 7px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.mostrar-mais button:hover{
+    color: #00579e;
+}
+
+.melhores-pais{
+    margin: 40px;
+}
+
+.titulo{
+    margin-left: 15px;
+    margin-bottom: 4px !important;
+}
+
+.titulo h2{
+    margin-right: 14px !important;
+    font-size: 1.5714285714rem;
+    font-weight: 400;
+}
+
+.medium-items{
+    position: relative;
 }
 
 @media screen and (min-width: 700px){
@@ -443,5 +565,97 @@ li{
         -ms-flex-order: 2;
         order: 2; 
     }
-    
+}
+
+.medium-list-ul{
+    overflow-x: auto;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    scroll-padding: 10px;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+
+    /* margin-left: -10px !important; */
+    /* margin-right: -10px !important; */
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    left: 0%;
+
+    transition: all .8s ease;
+}
+
+.medium-list-ul img{
+    height: 260px;
+    width: 260px;
+}
+
+.medium-list-li{
+    scroll-snap-align: start;
+    margin-right: 28px;
+}
+
+.img{
+    --psw-border-top-width: 0px;
+    --psw-border-left-width: 0px;
+    --psw-border-bottom-width: 0px;
+    --psw-border-right-width: 0px;
+    border-width: 0px;
+    border-style: solid;
+
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: start;
+    /* padding-top: 100%; */
+}
+
+.prev-btn{
+    display: none;
+}
+
+#left{
+    left: -2%;
+}
+
+#right{
+    left: 99%;
+}
+
+#right, #left{
+    background-color: #00579e;
+    color: white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    display: flex;
+    top: 475%;
+    justify-content: center;
+    align-items: center;
+}
+
+.medium-i{
+    text-decoration: none;
+    color: #343434;
+}
+
+@media screen and (min-width: 1024px){
+    .medium-list{
+        max-width: calc(100vw - 84px);
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1365px){
+    .medium-list-li{
+        width: calc(25vw - 31.5px);
+        min-width: calc(25vw - 31.5px);
+    }
 }
