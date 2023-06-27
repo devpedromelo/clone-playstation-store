@@ -12,6 +12,10 @@ body{
     overflow-x: hidden;
 }
 
+#collection-4, #collection-5{
+    margin-top: 20%;
+}
+
 .sony-logo{
     background-image: url(../imagens/logo-sony.png);
     background-repeat: no-repeat;
@@ -478,6 +482,7 @@ ul img{
 
 .melhores-pais{
     margin: 40px;
+    margin-bottom: 25%;
 }
 
 .titulo{
@@ -493,6 +498,11 @@ ul img{
 
 .medium-items{
     position: relative;
+}
+
+.nome{
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (min-width: 700px){
@@ -617,6 +627,13 @@ ul img{
     /* padding-top: 100%; */
 }
 
+.medium-list .img:hover{
+    border: 3px solid #00579e;
+    padding: 2px;
+    margin: -3.31px;
+    border-radius: 10px;
+}
+
 .prev-btn{
     display: none;
 }
@@ -650,6 +667,14 @@ ul img{
 @media screen and (min-width: 1024px){
     .medium-list{
         max-width: calc(100vw - 84px);
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .grid-list-collection {
+        width: calc(29.333333vw - 30.333333px);
+        min-width: calc(10.333333vw - 10.333333px);
+        margin: 6px;
     }
 }
 
