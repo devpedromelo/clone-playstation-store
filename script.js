@@ -17,15 +17,15 @@ const grid = [
     {
         img: "./imagens/mais-aguardados.jpg",
     },
-    {
-        img: "./imagens/street-fighter.jpg",
-    },
-    {
-        img: "./imagens/nba.jpg",
-    },
-    {
-        img: "./imagens/cod.jpg",
-    }
+    // {
+    //     img: "./imagens/street-fighter.jpg",
+    // },
+    // {
+    //     img: "./imagens/nba.jpg",
+    // },
+    // {
+    //     img: "./imagens/cod.jpg",
+    // }
 ];
 
 const itens = [
@@ -177,12 +177,12 @@ const prevFooter = [
     {
         img: "./imagens/VR-icon.jpg",
     },
-    {
-        img: "./imagens/ps-plus-icon.jpg",
-    },
-    {
-        img: "./imagens/VR2-icon.jpg",
-    }
+    // {
+    //     img: "./imagens/ps-plus-icon.jpg",
+    // },
+    // {
+    //     img: "./imagens/VR2-icon.jpg",
+    // }
 ];
 
 const media = document.querySelector(".media");
@@ -387,3 +387,18 @@ function toRight3(){
     nextBtn3.style.display = 'block'
     prevBtn3.style.display = 'none'
 };
+
+const btnMostrarMais1 = document.querySelector("#btn1 button");
+const btnMostrarMais2 = document.querySelector("#btn2 button");
+const hide = document.querySelector("#hide1");
+const hide2 = document.querySelector("#hide2");
+
+btnMostrarMais1.addEventListener("click", function(){
+    hide.style.display = 'block'
+    btnMostrarMais1.style.display = 'none'
+});
+
+btnMostrarMais2.addEventListener("click", function(){
+    hide2.style.display = 'block'
+    btnMostrarMais2.style.display = 'none'
+});

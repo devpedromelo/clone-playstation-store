@@ -581,6 +581,14 @@ ul img{
     }
 }
 
+.hide{
+    display: none;
+}
+
+.hide-spot{
+    display: flex;
+}
+
 .medium-list-ul{
     overflow-x: auto;
     -ms-scroll-snap-type: x mandatory;
