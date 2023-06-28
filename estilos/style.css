@@ -275,6 +275,7 @@ ul{
 li{
     list-style-type: none;
     padding-right: 5px;
+    line-height: 2;
 }
 
 .tabs{
@@ -433,9 +434,12 @@ li{
     min-width: 0;
 }
 
-.grid-list-collection{
+.grid-list-collection, .colum1{
     width: calc(33.3333333333vw - 37.3333333333px);
     min-width: calc(33.3333333333vw - 37.3333333333px);
+}
+
+.grid-list-collection{
     margin: 6px;
 }
 
@@ -664,9 +668,73 @@ ul img{
     color: #343434;
 }
 
+.footer{
+    background-color: #003697;
+    color: white;
+}
+
+footer .ps-logo-container, .regiao{
+    margin-left: 40px;
+}
+
+.regiao{
+    display: flex;
+}
+
+.footer-links{
+
+    max-width: calc(100vw - 26px);
+
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: -7px;
+    margin-bottom: -7px;
+    padding-left: 40px;
+    font-size: .8rem;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-section, .footer-copy{
+    max-width: calc(100vw - 84px);
+}
+
+.footer-section-content{
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+    justify-content: flex-start;
+    padding-left: 26px;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 @media screen and (min-width: 1024px){
     .medium-list{
         max-width: calc(100vw - 84px);
+    }
+
+    .footer-links{
+        max-width: calc(100vw - 70px);
+        font-size: .9rem;
+    }
+
+    .footer-links li{
+        padding: 5px 0px;
     }
 }
 

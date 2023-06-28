@@ -183,7 +183,7 @@ const prevFooter = [
     {
         img: "./imagens/VR2-icon.jpg",
     }
-]
+];
 
 const media = document.querySelector(".media");
 const img = document.createElement('img');
