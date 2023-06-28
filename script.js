@@ -156,18 +156,52 @@ const preVenda = [
         desc: "The Crew™ Motorfest Standard Edition",
         preco: "R$299,90"
     },
+];
+
+const prevFooter = [
+    {
+        img: "./imagens/todos-os-jogos-icon.jpg",
+    },
+    {
+        img: "./imagens/todos-os-jogos-ps4-icon.jpg",
+    },
+    {
+        img: "./imagens/pechinchas-icon.jpg",
+    },
+    {
+        img: "./imagens/expansoes-icon.jpg",
+    },
+    {
+        img: "./imagens/free-to-play-icon.jpg",
+    },
+    {
+        img: "./imagens/VR-icon.jpg",
+    },
+    {
+        img: "./imagens/ps-plus-icon.jpg",
+    },
+    {
+        img: "./imagens/VR2-icon.jpg",
+    }
 ]
 
 const media = document.querySelector(".media");
-const mediaPlus = document.getElementById('ps-plus');
 const img = document.createElement('img');
-const img2 = document.createElement('img');
 img.setAttribute('src', 'imagens/teste2.jpeg');
-img2.setAttribute('src', 'imagens/ps-plus.jpeg');
 img.setAttribute('class', 'psw-fade-in-out psw-center psw-fill');
-img2.setAttribute('class', 'psw-fade-in-out psw-center psw-fill');
 media.appendChild(img);
+
+const mediaPlus = document.getElementById('ps-plus');
+const img2 = document.createElement('img');
+img2.setAttribute('src', 'imagens/ps-plus.jpeg');
+img2.setAttribute('class', 'psw-fade-in-out psw-center psw-fill');
 mediaPlus.appendChild(img2);
+
+const mediaStars = document.getElementById('ps-stars');
+const img3 = document.createElement('img');
+img3.setAttribute('src', 'imagens/ps-stars.jpeg');
+img3.setAttribute('class', 'psw-fade-in-out psw-center psw-fill');
+mediaStars.appendChild(img3);
 
 window.addEventListener("resize", function(){
     let widthWindow = window.innerWidth;
@@ -188,13 +222,14 @@ window.addEventListener('load', function(){
 });
 
 const span = document.querySelector('.collection-list');
+const span2 = document.querySelector(".collection-prev-footer");
 
 window.addEventListener('DOMContentLoaded', function(){
-    let enter = ''
     gridObject(grid);
     itemsObject(itens);
     ngObject(newGames);
     vendaObject(preVenda);
+    prevFooterObject(prevFooter);
 });
 
 function gridObject(g){
@@ -209,6 +244,20 @@ function gridObject(g){
     });
     spanItems = spanItems.join(" ");
     span.innerHTML = spanItems;
+};
+
+function prevFooterObject(g){
+    let spanItems = g.map(function(item){
+        return `<li class="grid-list-collection">
+                    <a href="@">
+                        <div class="psw-line-center">
+                            <span><img src="${item.img}"></span>
+                        </div>
+                    </a>
+                </li>`
+    });
+    spanItems = spanItems.join(" ");
+    span2.innerHTML = spanItems;
 };
 
 // const showMore = document.querySelector(".mostrar-mais");
