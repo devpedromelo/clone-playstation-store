@@ -28,6 +28,89 @@ const grid = [
     // }
 ];
 
+const menuOpen = [
+    {
+        img: "imagens/ps5-menu.jpeg",
+        desc: 'PS5',
+        category: "jogos"
+    },
+    {
+        img: "imagens/ps4-menu.jpeg",
+        desc: 'PS4',
+        category: "jogos"
+    },
+    {
+        img: "imagens/VR-menu.jpeg",
+        desc: 'VR',
+        category: "jogos"
+    },
+    {
+        img: "imagens/plus-menu.jpeg",
+        desc: 'PS Plus',
+        category: "jogos"
+    },
+    {
+        img: "imagens/store-menu.jpeg",
+        desc: 'Compre jogos',
+        category: "jogos"
+    },
+    {
+        img: "imagens/ps5-menu.jpeg",
+        desc: 'PS5',
+        category: "hardware"
+    },
+    {
+        img: "imagens/ps4-menu.jpeg",
+        desc: 'PS4',
+        category: "hardware"
+    },
+    {
+        img: "imagens/PS4-pro-menu.jpeg",
+        desc: 'PS4 Pro',
+        category: "hardware"
+    },
+    {
+        img: "imagens/VR2-menu.jpeg",
+        desc: 'VR2',
+        category: "hardware"
+    },
+    {
+        img: "imagens/plus-menu.jpeg",
+        desc: 'PS Plus',
+        category: "serviços"
+    },
+    {
+        img: "imagens/PS-stars-menu.jpeg",
+        desc: 'PS Stars',
+        category: "serviços"
+    },
+    {
+        img: "imagens/PS-blog-menu.jpeg",
+        desc: 'PS Blog',
+        category: "noticias"
+    },
+    {
+        img: "imagens/calendario-menu.jpeg",
+        desc: 'Este mês no PlayStation',
+        category: "noticias"
+    },
+    {
+        img: "imagens/store-menu.jpeg",
+        desc: 'Compre jogos',
+        category: "loja"
+    },
+    {
+        img: "imagens/suporte-menu.jpeg",
+        desc: 'Suporte',
+        category: "suporte"
+    },
+    {
+        img: "imagens/status-menu.jpeg",
+        desc: 'Status da PSN',
+        category: "suporte"
+    },
+]
+
 const itens = [
     {
         img: "./imagens/FF.jpg",
@@ -223,9 +306,11 @@ window.addEventListener('load', function(){
 
 const span = document.querySelector('.collection-list');
 const span2 = document.querySelector(".collection-prev-footer");
+const menuOpenHTML = document.querySelector(".menu-container");
 
 window.addEventListener('DOMContentLoaded', function(){
     gridObject(grid);
+    // menuOpenObject(menuOpen);
     itemsObject(itens);
     ngObject(newGames);
     vendaObject(preVenda);
@@ -245,6 +330,34 @@ function gridObject(g){
     spanItems = spanItems.join(" ");
     span.innerHTML = spanItems;
 };
+
+function menuOpenObject(g){
+    let spanItems = g.map(function(item){
+        return `    <a href="@"><img src="${item.img}" alt="">
+                        <span>${item.desc}</span>
+                    </a>`
+    });
+    spanItems = spanItems.join(" ");
+    menuOpenHTML.innerHTML = spanItems
+};
+
+const btnPrimaryItens = document.querySelectorAll(".primary-button");
+const menuOpenContainer = document.querySelector(".menu-open-container");
+
+btnPrimaryItens.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+        menuOpenContainer.classList.add("menu-open-container-toggle");
+        const elemento = e.target;
+        elemento.classList.add("active")
+        const category = e.target.dataset.id;
+        const menuItems = menuOpen.filter(function(itemMenu){
+            if(itemMenu.category == category){
+                return itemMenu
+            };
+        });
+        return menuOpenObject(menuItems)
+    });
+});
 
 function prevFooterObject(g){
     let spanItems = g.map(function(item){

@@ -51,11 +51,72 @@ body{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
     width: 100%;
     z-index: 10;
+}
+
+.menu-open-container{
+    display: none;
+}
+
+.menu-open-container-toggle{
+    display: block;
+}
+
+.menu-open{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.menu-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.menu-container a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 40px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.hr ul{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.hr li{
+    list-style: disc;
+}
+
+li::marker{
+    font-size: 1.4rem;
+    margin-top: 3px;
+    color: #0070cc;
+}
+
+.hr li a{
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.hr li a:hover{
+    color: #0070cc;
 }
 
 #nav-shared{
