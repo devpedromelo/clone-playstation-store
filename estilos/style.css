@@ -64,6 +64,8 @@ body{
 }
 
 .menu-open-container-toggle{
+    -webkit-transition: 5s ease;
+    transition: 5s ease;
     display: block;
 }
 
@@ -186,11 +188,18 @@ li::marker{
     -webkit-tap-highlight-color: transparent;
     margin: 5px;
     background-color: white;
-    color: #6b6b6b;
     font-weight: 500;
 }
 
+.primary-button button{
+    color: #6b6b6b;
+}
+
 .primary-button:hover{
+    color: #0070cc;
+}
+
+.active{
     color: #0070cc;
 }
 

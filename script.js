@@ -343,12 +343,32 @@ function menuOpenObject(g){
 
 const btnPrimaryItens = document.querySelectorAll(".primary-button");
 const menuOpenContainer = document.querySelector(".menu-open-container");
+let elementoActive = '';
 
 btnPrimaryItens.forEach(function(btn){
     btn.addEventListener("click", function(e){
         menuOpenContainer.classList.add("menu-open-container-toggle");
+
         const elemento = e.target;
-        elemento.classList.add("active")
+        if(!elemento.classList.contains("active")){
+            if(elementoActive === ''){
+                elementoActive = elemento;
+                elementoActive.classList.add("active");
+            }else{
+                if(elementoActive !== elemento){
+                    elementoActive.classList.remove("active");
+                }
+                elementoActive = elemento;
+                elementoActive.classList.add("active");
+            }
+        }else{
+            menuOpenContainer.classList.remove("menu-open-container-toggle");
+            elementoActive.classList.remove("active");
+            elementoActive = '';
+        };
+        elementoActive = elementoActive;
+        console.log(elementoActive);
+
         const category = e.target.dataset.id;
         const menuItems = menuOpen.filter(function(itemMenu){
             if(itemMenu.category == category){
