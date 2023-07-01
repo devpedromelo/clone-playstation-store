@@ -97,12 +97,13 @@ body{
 
 .hr ul{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 40px;
 }
 
 .hr li{
     list-style: disc;
+    margin-left: 40px;
 }
 
 li::marker{

@@ -109,7 +109,116 @@ const menuOpen = [
         desc: 'Status da PSN',
         category: "suporte"
     },
-]
+];
+
+const liOpenMenu = [
+    //jogos
+    {
+        li: 'Playstation Indies',
+        category: "jogos"
+    },
+    {
+        li: 'Jogos de PS4 para PS5',
+        category: "jogos"
+    },
+    {
+        li: 'Grátis para jogar',
+        category: "jogos"
+    },
+    {
+        li: 'Playstation no PC',
+        category: "jogos"
+    },
+    {
+        li: 'Ofertas e promoções',
+        category: "jogos"
+    },
+    //hardware
+    {
+        li: 'Controle sem fio DualSense',
+        category: "hardware"
+    },
+    {
+        li: 'Headset sem fio PULSE 3D',
+        category: "hardware"
+    },
+    {
+        li: 'Controle sem fio DUALSHOCK 4',
+        category: "hardware"
+    },
+    {
+        li: 'Acessórios PS5 e PS4',
+        category: "hardware"
+    },
+    {
+        li: 'PlayStation VR',
+        category: "hardware"
+    },
+    //serviços
+    {
+        li: 'Entretenimento no PS5',
+        category: "serviços"
+    },
+    {
+        li: 'Entretenimento no PS4',
+        category: "serviços"
+    },
+    //noticias
+    {
+        li: 'Central de competições',
+        category: "noticias"
+    },
+    {
+        li: 'Acessibilidade',
+        category: "noticias"
+    },
+    {
+        li: 'Privacidade e segurança',
+        category: "noticias"
+    },
+    //loja
+    {
+        li: 'Novos lançamentos',
+        category: "loja"
+    },
+    {
+        li: 'Descontos mais recentes',
+        category: "loja"
+    },
+    {
+        li: 'Coleções',
+        category: "loja"
+    },
+    {
+        li: 'Comprar um vale-presente',
+        category: "loja"
+    },
+    {
+        li: 'Assinar o PS Plus',
+        category: "loja"
+    },
+    //suporte
+    {
+        li: 'Conta',
+        category: "suporte"
+    },
+    {
+        li: 'Loja',
+        category: "suporte"
+    },
+    {
+        li: 'Serviços em camadas',
+        category: "suporte"
+    },
+    {
+        li: 'Jogos',
+        category: "suporte"
+    },
+    {
+        li: 'Hardware',
+        category: "suporte"
+    },
+];
 
 const itens = [
     {
@@ -306,7 +415,8 @@ window.addEventListener('load', function(){
 
 const span = document.querySelector('.collection-list');
 const span2 = document.querySelector(".collection-prev-footer");
-const menuOpenHTML = document.querySelector(".menu-container");
+const menuOpenHTML = document.querySelector(".menu-container")
+const hr = document.querySelector(".hr-div-ul");
 
 window.addEventListener('DOMContentLoaded', function(){
     gridObject(grid);
@@ -341,18 +451,30 @@ function menuOpenObject(g){
     menuOpenHTML.innerHTML = spanItems
 };
 
+function liOpenObject(g){
+    let spanItems = g.map(function(item){
+        return `    <li><a href="@">${item.li}</a></li>`
+    });
+    spanItems = spanItems.join(" ");
+    hr.innerHTML = spanItems;
+};
+
 const btnPrimaryItens = document.querySelectorAll(".primary-button");
 const menuOpenContainer = document.querySelector(".menu-open-container");
+// const seta = document.querySelectorAll(".seta");
 let elementoActive = '';
 
 btnPrimaryItens.forEach(function(btn){
     btn.addEventListener("click", function(e){
-        menuOpenContainer.classList.add("menu-open-container-toggle");
+        menuOpenContainer.classList.add("menu-open-container-toggle")
 
         const elemento = e.target;
+        const seta = elemento.querySelector(".seta")
+        console.log(seta);
         if(!elemento.classList.contains("active")){
             if(elementoActive === ''){
                 elementoActive = elemento;
+                seta.textContent = 'expand_less';
                 elementoActive.classList.add("active");
             }else{
                 if(elementoActive !== elemento){
@@ -365,9 +487,9 @@ btnPrimaryItens.forEach(function(btn){
             menuOpenContainer.classList.remove("menu-open-container-toggle");
             elementoActive.classList.remove("active");
             elementoActive = '';
+            seta.textContent = 'stat_minus_1';
         };
         elementoActive = elementoActive;
-        console.log(elementoActive);
 
         const category = e.target.dataset.id;
         const menuItems = menuOpen.filter(function(itemMenu){
@@ -375,7 +497,19 @@ btnPrimaryItens.forEach(function(btn){
                 return itemMenu
             };
         });
-        return menuOpenObject(menuItems)
+        return menuOpenObject(menuItems);
+    });
+});
+
+btnPrimaryItens.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+        const category = e.target.dataset.id;
+        const menuItems = liOpenMenu.filter(function(itemMenu){
+            if(itemMenu.category == category){
+                return itemMenu
+            };
+        });
+        return liOpenObject(menuItems);
     });
 });
 
@@ -392,15 +526,6 @@ function prevFooterObject(g){
     spanItems = spanItems.join(" ");
     span2.innerHTML = spanItems;
 };
-
-// const showMore = document.querySelector(".mostrar-mais");
-// const showMoreBTN = document.querySelector('.mostrar-mais button');
-
-// showMoreBTN.addEventListener("click", function(){
-//     showMore.style.marginTop = '20px'
-//     showMore.style.height = '0px'
-//     showMoreBTN.style.display = 'none'
-// });
 
 const ul = document.querySelector("#medium-list-ul-1");
 const ul2 = document.querySelector("#medium-list-ul-2");
