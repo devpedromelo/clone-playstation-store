@@ -59,13 +59,62 @@ body{
     z-index: 10;
 }
 
+#social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    display: flex;
+}
+
+input[type='text']{
+    background-color: #ffffff;
+    padding: 0px 10px;
+    width: 250px;
+    outline: none;
+}
+
+.web-tool{
+    padding-top: 10px;
+    padding-right: 300%;
+}
+
+.search{
+    margin-left: 20px;
+    margin-right: -42px;
+}
+
+.search-open{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 40%;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.466);
+    width: 437px;
+
+}
+
+.ps-search-open{
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    border-inline-end: 1px solid rgb(178, 178, 178);
+    font-size: .9rem;
+}
+
+.search-open > div > span{
+    background-color: #0070cc;
+    color: white;
+    padding: 10px 10px;
+}
+
 .menu-open-container{
     display: none;
 }
 
 .menu-open-container-toggle{
-    -webkit-transition: 5s ease;
-    transition: 5s ease;
     display: block;
 }
 
@@ -237,13 +286,6 @@ button{
 
 .sign-in:hover{
     background-color: #00579e;
-}
-
-.search{
-    margin-top: 9px;
-    margin-left: 20px;
-    margin-right: -180px;
-    margin: right;
 }
 
 .abas{

@@ -469,19 +469,23 @@ btnPrimaryItens.forEach(function(btn){
         menuOpenContainer.classList.add("menu-open-container-toggle")
 
         const elemento = e.target;
-        const seta = elemento.querySelector(".seta")
-        console.log(seta);
+        let seta = elemento.querySelector(".seta");
         if(!elemento.classList.contains("active")){
             if(elementoActive === ''){
                 elementoActive = elemento;
+                seta = elementoActive.querySelector(".seta");
                 seta.textContent = 'expand_less';
                 elementoActive.classList.add("active");
             }else{
                 if(elementoActive !== elemento){
+                    seta = elementoActive.querySelector(".seta");
+                    seta.textContent = 'stat_minus_1';
                     elementoActive.classList.remove("active");
                 }
                 elementoActive = elemento;
                 elementoActive.classList.add("active");
+                seta = elementoActive.querySelector(".seta");
+                seta.textContent = 'expand_less';
             }
         }else{
             menuOpenContainer.classList.remove("menu-open-container-toggle");
@@ -494,7 +498,7 @@ btnPrimaryItens.forEach(function(btn){
         const category = e.target.dataset.id;
         const menuItems = menuOpen.filter(function(itemMenu){
             if(itemMenu.category == category){
-                return itemMenu
+                return itemMenu;
             };
         });
         return menuOpenObject(menuItems);
