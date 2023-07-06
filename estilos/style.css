@@ -46,6 +46,12 @@ body{
     background-color: white;
 }
 
+.header-fixed{
+    position: fixed;
+    background-color: white;
+    margin-top: -50px;
+}
+
 .nav-container{
     margin-top: 40px;
     display: -webkit-box;
@@ -78,22 +84,54 @@ input[type='text']{
 
 .web-tool{
     padding-top: 10px;
+}
+
+.web-tool-active{
+    padding-top: 22px;
     padding-right: 300%;
 }
 
 .search{
-    margin-left: 20px;
-    margin-right: -42px;
+    margin-top: 14px;
+    margin-right: -180px;
+}
+
+.search-active{
+    margin-right: -60px;
+}
+
+.search-open-body{
+    display: flex;
+
+    display: flex;
+    position: relative;
+    left: -1110%;
+    right: 30%;
 }
 
 .search-open{
-    display: flex;
+    /* display: flex;
+    visibility: hidden;
     justify-content: center;
     position: relative;
     left: 40%;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.466);
-    width: 437px;
+    box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.151);
+    width: 437px; */
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    position: absolute;
+    z-index: 99999;
+    padding: 7px;
+    /* left: 82%; */
+    box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.151);
+    width: 410px;
+    transition: all .6s ease;
+}
 
+.search-open-active{
+    visibility: visible;
+    transition: all .6s ease;
 }
 
 .ps-search-open{
@@ -104,10 +142,45 @@ input[type='text']{
     font-size: .9rem;
 }
 
-.search-open > div > span{
+.span-search-active{
     background-color: #0070cc;
     color: white;
     padding: 10px 10px;
+}
+
+.span-in-search-body{
+    cursor: pointer;
+    position: relative;
+    left: 1110%;
+}
+
+.span-in-search-body-active{
+    /* margin-top: 9px;
+    background-color: #0070cc;
+    display: flex;
+    margin-top: 0.7px;
+    margin-bottom: -0.1%;
+    padding-left: 43%;
+    padding-right: 3%;
+    color: white;
+    align-items: center;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.17); */
+    margin-top: 9px;
+    background-color: #0070cc;
+    display: flex;
+    left: 1677%;
+    margin-top: 0.7px;
+    margin-bottom: -0.1%;
+    padding-bottom: 19%;
+    padding-top: 28%;
+    padding-left: 43%;
+    padding-right: 30%;
+    color: white;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.17);
+}
+
+.show-onclick{
+    display: flex;
 }
 
 .menu-open-container{
@@ -142,6 +215,10 @@ input[type='text']{
     color: #000;
     font-weight: 500;
     text-decoration: none;
+}
+
+.menu-container a:hover{
+    box-shadow: -2px -1px 15px rgba(0, 0, 0, 0.203);
 }
 
 .hr ul{
@@ -566,6 +643,7 @@ li{
     flex-direction: row;
     align-items: center;
     min-width: 0;
+    position: relative;
 }
 
 ul img{
@@ -872,4 +950,17 @@ footer a{
         width: calc(25vw - 31.5px);
         min-width: calc(25vw - 31.5px);
     }
+}
+
+.hover{
+    position: absolute;
+    height: 97.5%;
+    top: 0%;
+    width: 100%;
+    background-color: #00000000;
+    border-radius: 5px;
+}
+
+.hover:hover{
+    background-color: #00000044;
 }

@@ -433,6 +433,7 @@ function gridObject(g){
                     <a href="@">
                         <div class="psw-line-center">
                             <span><img src="${item.img}"></span>
+                            <div class="hover"></div>
                         </div>
                     </a>
                 </li>`
@@ -461,7 +462,6 @@ function liOpenObject(g){
 
 const btnPrimaryItens = document.querySelectorAll(".primary-button");
 const menuOpenContainer = document.querySelector(".menu-open-container");
-// const seta = document.querySelectorAll(".seta");
 let elementoActive = '';
 
 btnPrimaryItens.forEach(function(btn){
@@ -523,6 +523,7 @@ function prevFooterObject(g){
                     <a href="@">
                         <div class="psw-line-center">
                             <span><img src="${item.img}"></span>
+                            <div class="hover"></div>
                         </div>
                     </a>
                 </li>`
@@ -543,6 +544,7 @@ function itemsObject(i){
                             <div class="item">
                             <div class="img">
                                 <img src="${item.img}" alt="">
+                                <div class="hover"></div>
                             </div>
                             <section class="nome">
                                 <span>${item.desc}</span>
@@ -564,6 +566,7 @@ function ngObject(i){
                             <div class="item">
                             <div class="img">
                                 <img src="${item.img}" alt="">
+                                <div class="hover"></div>
                             </div>
                             <section class="nome">
                                 <span>${item.desc}</span>
@@ -585,6 +588,7 @@ function vendaObject(i){
                             <div class="item">
                             <div class="img">
                                 <img src="${item.img}" alt="">
+                                <div class="hover"></div>
                             </div>
                             <section class="nome">
                                 <span>${item.desc}</span>
@@ -663,4 +667,28 @@ btnMostrarMais1.addEventListener("click", function(){
 btnMostrarMais2.addEventListener("click", function(){
     hide2.style.display = 'block'
     btnMostrarMais2.style.display = 'none'
+});
+
+const btnSearch = document.querySelector(".span-in-search-body");
+const pesquisaStore = document.querySelector(".search-open");
+const search = document.querySelector(".search");
+const webTool = document.querySelector(".web-tool");
+
+btnSearch.addEventListener("click", function(){
+    btnSearch.classList.add("span-in-search-body-active")
+    pesquisaStore.classList.add("search-open-active")
+    search.classList.add("search-active")
+    webTool.classList.add("web-tool-active")
+});
+
+
+const navContainer = document.querySelector(".header");
+window.addEventListener("scroll", function(){
+    let scrollHeight = window.scrollY;
+
+    if(scrollHeight > 50){
+        navContainer.classList.add("header-fixed")
+    }else{
+        navContainer.classList.remove("header-fixed")
+    }
 });
