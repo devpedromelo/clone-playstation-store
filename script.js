@@ -1,3 +1,4 @@
+//=====================================ARRAY DE OBJETOS===============================================
 const grid = [
     {
         img: "./imagens/spider-2.jpg",
@@ -377,6 +378,8 @@ const prevFooter = [
     // }
 ];
 
+//================================IMAGENS PSW-CENTER NO HTML=========================================
+//--------------criando as imagens
 const media = document.querySelector(".media");
 const img = document.createElement('img');
 img.setAttribute('src', 'imagens/teste2.jpeg');
@@ -395,6 +398,7 @@ img3.setAttribute('src', 'imagens/ps-stars.jpeg');
 img3.setAttribute('class', 'psw-fade-in-out psw-center psw-fill');
 mediaStars.appendChild(img3);
 
+//=============================AJUSTANDO AS IMAGENS NA WINDOW=========================================
 window.addEventListener("resize", function(){
     let widthWindow = window.innerWidth;
     if(widthWindow <= 1024){
@@ -413,11 +417,14 @@ window.addEventListener('load', function(){
     }
 });
 
+//=========================================FUNÇÕES====================================================
+//--------------------selecionando os elementos
 const span = document.querySelector('.collection-list');
 const span2 = document.querySelector(".collection-prev-footer");
 const menuOpenHTML = document.querySelector(".menu-container")
 const hr = document.querySelector(".hr-div-ul");
 
+//--------------------criando as funções
 window.addEventListener('DOMContentLoaded', function(){
     gridObject(grid);
     // menuOpenObject(menuOpen);
@@ -458,78 +465,6 @@ function liOpenObject(g){
     });
     spanItems = spanItems.join(" ");
     hr.innerHTML = spanItems;
-};
-
-const btnPrimaryItens = document.querySelectorAll(".primary-button");
-const menuOpenContainer = document.querySelector(".menu-open-container");
-let elementoActive = '';
-
-btnPrimaryItens.forEach(function(btn){
-    btn.addEventListener("click", function(e){
-        menuOpenContainer.classList.add("menu-open-container-toggle")
-
-        const elemento = e.target;
-        let seta = elemento.querySelector(".seta");
-        if(!elemento.classList.contains("active")){
-            if(elementoActive === ''){
-                elementoActive = elemento;
-                seta = elementoActive.querySelector(".seta");
-                seta.textContent = 'expand_less';
-                elementoActive.classList.add("active");
-            }else{
-                if(elementoActive !== elemento){
-                    seta = elementoActive.querySelector(".seta");
-                    seta.textContent = 'stat_minus_1';
-                    elementoActive.classList.remove("active");
-                }
-                elementoActive = elemento;
-                elementoActive.classList.add("active");
-                seta = elementoActive.querySelector(".seta");
-                seta.textContent = 'expand_less';
-            }
-        }else{
-            menuOpenContainer.classList.remove("menu-open-container-toggle");
-            elementoActive.classList.remove("active");
-            elementoActive = '';
-            seta.textContent = 'stat_minus_1';
-        };
-        elementoActive = elementoActive;
-
-        const category = e.target.dataset.id;
-        const menuItems = menuOpen.filter(function(itemMenu){
-            if(itemMenu.category == category){
-                return itemMenu;
-            };
-        });
-        return menuOpenObject(menuItems);
-    });
-});
-
-btnPrimaryItens.forEach(function(btn){
-    btn.addEventListener("click", function(e){
-        const category = e.target.dataset.id;
-        const menuItems = liOpenMenu.filter(function(itemMenu){
-            if(itemMenu.category == category){
-                return itemMenu
-            };
-        });
-        return liOpenObject(menuItems);
-    });
-});
-
-function prevFooterObject(g){
-    let spanItems = g.map(function(item){
-        return `<li class="grid-list-collection">
-                    <a href="@">
-                        <div class="psw-line-center">
-                            <span><img src="${item.img}"></span>
-                            <div class="hover"></div>
-                        </div>
-                    </a>
-                </li>`
-    });
-    spanItems = spanItems.join(" ");
-    span2.innerHTML = spanItems;
 };
 
 const ul = document.querySelector("#medium-list-ul-1");
@@ -603,7 +538,81 @@ function vendaObject(i){
     ul3.innerHTML = li;
 }
 
-// const final = ul.getBoundingClientRect().width;
+//============================CRIANDO OS BOTÕES====================================================
+const btnPrimaryItens = document.querySelectorAll(".primary-button");
+const menuOpenContainer = document.querySelector(".menu-open-container");
+let elementoActive = '';
+
+//---------------------menu open e setas
+btnPrimaryItens.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+        menuOpenContainer.classList.add("menu-open-container-toggle")
+
+        const elemento = e.target;
+        let seta = elemento.querySelector(".seta");
+        if(!elemento.classList.contains("active")){
+            if(elementoActive === ''){
+                elementoActive = elemento;
+                seta = elementoActive.querySelector(".seta");
+                seta.textContent = 'expand_less';
+                elementoActive.classList.add("active");
+            }else{
+                if(elementoActive !== elemento){
+                    seta = elementoActive.querySelector(".seta");
+                    seta.textContent = 'stat_minus_1';
+                    elementoActive.classList.remove("active");
+                }
+                elementoActive = elemento;
+                elementoActive.classList.add("active");
+                seta = elementoActive.querySelector(".seta");
+                seta.textContent = 'expand_less';
+            }
+        }else{
+            menuOpenContainer.classList.remove("menu-open-container-toggle");
+            elementoActive.classList.remove("active");
+            elementoActive = '';
+            seta.textContent = 'stat_minus_1';
+        };
+        elementoActive = elementoActive;
+
+        const category = e.target.dataset.id;
+        const menuItems = menuOpen.filter(function(itemMenu){
+            if(itemMenu.category == category){
+                return itemMenu;
+            };
+        });
+        return menuOpenObject(menuItems);
+    });
+});
+
+btnPrimaryItens.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+        const category = e.target.dataset.id;
+        const menuItems = liOpenMenu.filter(function(itemMenu){
+            if(itemMenu.category == category){
+                return itemMenu
+            };
+        });
+        return liOpenObject(menuItems);
+    });
+});
+
+function prevFooterObject(g){
+    let spanItems = g.map(function(item){
+        return `<li class="grid-list-collection">
+                    <a href="@">
+                        <div class="psw-line-center">
+                            <span><img src="${item.img}"></span>
+                            <div class="hover"></div>
+                        </div>
+                    </a>
+                </li>`
+    });
+    spanItems = spanItems.join(" ");
+    span2.innerHTML = spanItems;
+};
+
+//--------------botões de mover para direita e esquerda
 const nextBtn1 = document.querySelector("#next-btn-1");
 const prevBtn1 = document.querySelector("#prev-btn-1");
 const nextBtn2 = document.querySelector("#next-btn-2");
@@ -654,6 +663,7 @@ function toRight3(){
     prevBtn3.style.display = 'none'
 };
 
+//-----------------botões de 'mostrar mais'
 const btnMostrarMais1 = document.querySelector("#btn1 button");
 const btnMostrarMais2 = document.querySelector("#btn2 button");
 const hide = document.querySelector("#hide1");
@@ -669,6 +679,7 @@ btnMostrarMais2.addEventListener("click", function(){
     btnMostrarMais2.style.display = 'none'
 });
 
+//---------------botão de pesquisa
 const btnSearch = document.querySelector(".span-in-search-body");
 const pesquisaStore = document.querySelector(".search-open");
 const search = document.querySelector(".search");
@@ -681,7 +692,7 @@ btnSearch.addEventListener("click", function(){
     webTool.classList.add("web-tool-active")
 });
 
-
+//=================================FIXANDO O MENU====================================================
 const navContainer = document.querySelector(".header");
 window.addEventListener("scroll", function(){
     let scrollHeight = window.scrollY;

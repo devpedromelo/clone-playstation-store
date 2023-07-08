@@ -676,7 +676,7 @@ ul img{
 }
 
 .melhores-pais{
-    margin: 40px;
+    margin: 55px;
     margin-bottom: 25%;
 }
 
@@ -963,4 +963,18 @@ footer a{
 
 .hover:hover{
     background-color: #00000044;
+}
+
+.colum1 a:hover{
+    color: #d6d6d6;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #dbdbdb;
+    border-radius: 2px;
+    width: 30px;
 }
